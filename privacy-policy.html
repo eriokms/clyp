@@ -236,6 +236,8 @@
     </div>
 
     <script>
+      const titles = { en: "Privacy Policy", jp: "プライバシーポリシー" };
+
       function switchLang(lang) {
         document.getElementById("en").classList.remove("active");
         document.getElementById("jp").classList.remove("active");
@@ -245,7 +247,12 @@
         tabs.forEach((t) => t.classList.remove("active"));
         if (lang === "en") tabs[0].classList.add("active");
         if (lang === "jp") tabs[1].classList.add("active");
+
+        document.title = titles[lang];
       }
+
+      const defaultLang = navigator.language.startsWith("ja") ? "jp" : "en";
+      switchLang(defaultLang);
     </script>
   </body>
 </html>
