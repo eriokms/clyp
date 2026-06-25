@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLYP — Cutout Collage Maker</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 20px;
+        max-width: 800px;
+        margin: auto;
+        box-sizing: border-box;
+        color: #111;
+      }
+
+      header {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+
+      h1 {
+        font-size: 40px;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+      }
+
+      .tagline {
+        color: #666;
+        font-size: 18px;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+
+      .tab {
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        cursor: pointer;
+        background: #f5f5f5;
+      }
+
+      .tab.active {
+        background: #000;
+        color: #fff;
+      }
+
+      .content {
+        display: none;
+      }
+
+      .content.active {
+        display: block;
+      }
+
+      ul.features {
+        list-style: none;
+        padding: 0;
+      }
+
+      ul.features li {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .cta {
+        display: inline-block;
+        margin: 24px 0;
+        padding: 12px 28px;
+        background: #000;
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .cta-wrap {
+        text-align: center;
+      }
+
+      footer {
+        margin-top: 60px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      footer a {
+        color: #555;
+        margin: 0 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>CLYP</h1>
+      <div class="tagline">Cutout Collage Maker</div>
+    </header>
+
+    <div class="tabs">
+      <div class="tab active" onclick="switchLang('en')">EN</div>
+      <div class="tab" onclick="switchLang('jp')">JP</div>
+    </div>
+
+    <!-- EN -->
+    <div id="en" class="content active">
+      <p>
+        CLYP lets you arrange your photos into beautiful collages with just a
+        few taps. Pick a layout, drop in your photos, and add text or
+        backgrounds to create a share-ready image.
+      </p>
+
+      <ul class="features">
+        <li>Flexible layouts you can freely combine</li>
+        <li>One-tap background removal</li>
+        <li>Text overlays with fonts, colors, and sizes</li>
+        <li>Adjustable aspect ratios</li>
+        <li>Background colors and images</li>
+        <li>Captions and numbering</li>
+      </ul>
+
+      <div class="cta-wrap">
+        <a class="cta" href="https://apps.apple.com/app/id6782176189"
+          >Download on the App Store</a
+        >
+      </div>
+    </div>
+
+    <!-- JP -->
+    <div id="jp" class="content">
+      <p>
+        CLYP（クリップ）は、複数の写真をかんたんにコラージュにまとめられるアプリです。
+        レイアウトを選んで写真を並べ、テキストや背景を加えるだけで、SNSにそのまま投稿できる1枚が完成します。
+      </p>
+
+      <ul class="features">
+        <li>自由に組み合わせられるレイアウト</li>
+        <li>ワンタップで写真の背景を削除</li>
+        <li>テキストオーバーレイ（フォント・カラー・サイズ調整）</li>
+        <li>アスペクト比を自由に設定</li>
+        <li>背景カラー・画像の変更</li>
+        <li>キャプション・ナンバリング表示</li>
+      </ul>
+
+      <div class="cta-wrap">
+        <a class="cta" href="https://apps.apple.com/app/id6782176189"
+          >App Store でダウンロード</a
+        >
+      </div>
+    </div>
+
+    <footer>
+      <a href="./privacy-policy.html">Privacy Policy</a>
+      <a href="./terms-of-use.html">Terms of Use</a>
+      <a href="https://tally.so/r/rjqvqp">Support</a>
+    </footer>
+
+    <script>
+      const titles = { en: "CLYP — Cutout Collage Maker", jp: "CLYP — コラージュメーカー" };
+
+      function switchLang(lang) {
+        document.getElementById("en").classList.remove("active");
+        document.getElementById("jp").classList.remove("active");
+        document.getElementById(lang).classList.add("active");
+
+        const tabs = document.querySelectorAll(".tab");
+        tabs.forEach((t) => t.classList.remove("active"));
+        if (lang === "en") tabs[0].classList.add("active");
+        if (lang === "jp") tabs[1].classList.add("active");
+
+        document.title = titles[lang];
+      }
+
+      const defaultLang = navigator.language.startsWith("ja") ? "jp" : "en";
+      switchLang(defaultLang);
+    </script>
+  </body>
+</html>
